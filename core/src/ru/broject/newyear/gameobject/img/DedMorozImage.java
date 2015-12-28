@@ -6,6 +6,6 @@ package ru.broject.newyear.gameobject.img;
 public class DedMorozImage extends Image {
 
     public DedMorozImage() {
-        super("snowman.png");
+        super("ded_moroz.png");
     }
 }

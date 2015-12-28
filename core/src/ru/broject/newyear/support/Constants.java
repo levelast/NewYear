@@ -5,8 +5,8 @@ package ru.broject.newyear.support;
  */
 public abstract class Constants {
 
-    public static final int WINDOW_WIDTH = 800;
-    public static final int WINDOW_HEIGHT = 480;
+    public static final int WINDOW_WIDTH = 900;
+    public static final int WINDOW_HEIGHT = 700;
 
     public static final int PATH_LENGTH = 3000;
 

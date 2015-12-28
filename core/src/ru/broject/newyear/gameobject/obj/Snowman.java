@@ -8,8 +8,8 @@ import ru.broject.newyear.support.Constants;
  */
 public class Snowman extends GameObj {
 
-    private static final int WIDTH = 120;
-    private static final int HEIGHT = 190;
+    private static final int WIDTH = 110;
+    private static final int HEIGHT = 180;
     private int hp;
     private Rectangle rectangle;
 

@@ -9,8 +9,8 @@ import ru.broject.newyear.support.Constants;
  */
 public class Drop extends GameObj {
 
-    private static final int WIDTH = 64;
-    private static final int HEIGHT = 64;
+    private static final int WIDTH = 45;
+    private static final int HEIGHT = 45;
     private Rectangle rectangle;
 
     public Drop(float snowmanXPosition) {
