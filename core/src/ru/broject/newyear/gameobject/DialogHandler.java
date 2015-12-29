@@ -19,7 +19,8 @@ public class DialogHandler {
     private static List<String> createSnowmanDialogs() {
         List<String> list = new ArrayList<String>();
         list.add("Hello, Ded Moroz!");
-        list.add("What about\n some snow?");
+        list.add("Can you make winter colder?");
+        list.add("MAKE IT!!!");
         list.add("Thank you!");
         return list;
     }
@@ -27,7 +28,8 @@ public class DialogHandler {
     private static List<String> createDedMorozDialogs() {
         List<String> list = new ArrayList<String>();
         list.add("Hi, Snowman");
-        list.add("Hm... I can\n make it");
+        list.add("Yes, of course");
+        list.add("OK");
         list.add("Boom!");
         return list;
     }
