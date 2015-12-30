@@ -8,7 +8,7 @@ public abstract class Constants {
     public static final int WINDOW_WIDTH = 900;
     public static final int WINDOW_HEIGHT = 700;
 
-    public static final int PATH_LENGTH = 3000;
+    public static final int PATH_LENGTH = 10000;
 
     public static final int DEFAULT_SPEED = 200;
     public static final int MAX_SPEED = 5000;

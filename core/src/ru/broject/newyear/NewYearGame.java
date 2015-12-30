@@ -17,8 +17,8 @@ public class NewYearGame extends Game {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        font25white = new BitmapFont(Gdx.files.internal("press25_white.fnt"), false);
-        font45white = new BitmapFont(Gdx.files.internal("press45_white.fnt"), false);
+        font25white = new BitmapFont(Gdx.files.internal("fonts/press25_white.fnt"), false);
+        font45white = new BitmapFont(Gdx.files.internal("fonts/press45_white.fnt"), false);
         this.setScreen(new MainMenuScreen(this));
     }
 

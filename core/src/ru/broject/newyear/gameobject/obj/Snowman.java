@@ -8,8 +8,8 @@ import ru.broject.newyear.support.Constants;
  */
 public class Snowman extends GameObj {
 
-    private static final int WIDTH = 120;
-    private static final int HEIGHT = 190;
+    private static final int WIDTH = 110;
+    private static final int HEIGHT = 180;
     private int snowpointsCount;
     private Rectangle rectangle;
 
@@ -20,7 +20,7 @@ public class Snowman extends GameObj {
         rectangle.x = Constants.WINDOW_WIDTH / 2 - rectangle.width / 2;
         rectangle.y = 0;
 
-        snowpointsCount = 900;
+        snowpointsCount = 50;
     }
 
     public Rectangle getShape() {

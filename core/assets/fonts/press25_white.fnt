@@ -1,7 +1,7 @@
 info face="Press Start 2P" size=25 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
 common lineHeight=25 base=25 scaleW=256 scaleH=256 pages=2 packed=0 alphaChnl=0 redChnl=4 greenChnl=4 blueChnl=4
-page id=0 file="press25_white_0.tga"
-page id=1 file="press25_white_1.tga"
+page id=0 file="press25_white_0.png"
+page id=1 file="press25_white_1.png"
 chars count=192
 char id=32   x=250   y=0     width=3     height=1     xoffset=-1    yoffset=24    xadvance=25    page=0  chnl=15
 char id=33   x=242   y=0     width=11    height=22    xoffset=5     yoffset=0     xadvance=25    page=1  chnl=15

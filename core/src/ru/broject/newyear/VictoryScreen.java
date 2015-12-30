@@ -7,14 +7,14 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import ru.broject.newyear.support.Constants;
 
 /**
- * Created by vyacheslav.svininyh on 29.12.2015.
+ * Created by vyacheslav.svininyh on 30.12.2015.
  */
-public class MainMenuScreen implements Screen {
+public class VictoryScreen implements Screen {
 
     private NewYearGame game;
     private OrthographicCamera camera;
 
-    public MainMenuScreen(NewYearGame game) {
+    public VictoryScreen(final NewYearGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
@@ -34,8 +34,10 @@ public class MainMenuScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font45white.draw(game.batch, "Saving private\n\n   Snowman", Constants.WINDOW_WIDTH / 6, (float) (Constants.WINDOW_HEIGHT / 1.25));
-        game.font25white.draw(game.batch, "Tap anywhere to begin", Constants.WINDOW_WIDTH / 5, Constants.WINDOW_HEIGHT / 4);
+        game.font45white.draw(game.batch, "Victory!", Constants.WINDOW_WIDTH / 3, (float) (Constants.WINDOW_HEIGHT / 1.3));
+        game.font45white.draw(game.batch, "Thank you and", (float) (Constants.WINDOW_WIDTH / 5.5), (float) (Constants.WINDOW_HEIGHT / 1.7));
+        game.font45white.draw(game.batch, "Happy New Year!", Constants.WINDOW_WIDTH / 6, (float) (Constants.WINDOW_HEIGHT / 2));
+        game.font25white.draw(game.batch, "Play again?", Constants.WINDOW_WIDTH / 3, Constants.WINDOW_HEIGHT / 4);
         game.batch.end();
 
         if (Gdx.input.isTouched()) {
@@ -66,5 +68,6 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void dispose() {
+
     }
 }

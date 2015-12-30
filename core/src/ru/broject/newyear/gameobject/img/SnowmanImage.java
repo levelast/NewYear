@@ -6,6 +6,6 @@ package ru.broject.newyear.gameobject.img;
 public class SnowmanImage extends Image {
 
     public SnowmanImage() {
-        super("snowman.png");
+        super("images/snowman.png");
     }
 }

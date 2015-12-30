@@ -6,6 +6,6 @@ package ru.broject.newyear.gameobject.img;
 public class DropImage extends Image {
 
     public DropImage() {
-        super("droplet.png");
+        super("images/droplet.png");
     }
 }
