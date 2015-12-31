@@ -14,12 +14,10 @@ public class DialogHandler {
     public static List<String> snowmanDialogs = createSnowmanDialogs();
     public static List<String> dedMorozDialogs = createDedMorozDialogs();
 
-    private int iteration = 0;
-
     private static List<String> createSnowmanDialogs() {
         List<String> list = new ArrayList<String>();
         list.add("Hello, Ded Moroz!");
-        list.add("Can you make winter colder?");
+        list.add("Can you make\n winter colder?");
         list.add("MAKE IT!!!");
         list.add("Thank you!");
         return list;
@@ -29,7 +27,7 @@ public class DialogHandler {
         List<String> list = new ArrayList<String>();
         list.add("Hi, Snowman");
         list.add("Yes, of course");
-        list.add("OK");
+        list.add("   OK");
         list.add("Boom!");
         return list;
     }

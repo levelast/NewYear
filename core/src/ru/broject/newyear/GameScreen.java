@@ -117,8 +117,8 @@ public class GameScreen implements Screen {
         camera.position.set(snowman.getShape().x, Constants.WINDOW_HEIGHT / 2, 0);
         camera.update();
 
-        snowmanDialog.setPosition(snowman.getShape().x - snowman.getShape().width * 3, (float) (snowman.getShape().y + snowman.getShape().height * 1.3));
-        dedMorozDialog.setPosition(dedMoroz.getShape().x, (float) (dedMoroz.getShape().y + dedMoroz.getShape().height * 1.3));
+        snowmanDialog.setPosition(snowman.getShape().x - snowman.getShape().width * 2, (float) (snowman.getShape().y + snowman.getShape().height * 1.3));
+        dedMorozDialog.setPosition(dedMoroz.getShape().x - dedMoroz.getShape().width / 2, (float) (dedMoroz.getShape().y + dedMoroz.getShape().height * 1.3));
 
         game.batch.setProjectionMatrix(camera.combined);
 
@@ -228,8 +228,8 @@ public class GameScreen implements Screen {
             if (snowman.getSnowpointsCount() < 20) {
                 snowman.setSnowpointsCount(20);
             }
-            if (dedMoroz.getShape().x - snowman.getShape().x < dedMoroz.getShape().width * 1.2) {
-                snowman.getShape().x = (float) (dedMoroz.getShape().x - dedMoroz.getShape().width * 1.2);
+            if (dedMoroz.getShape().x - snowman.getShape().x < dedMoroz.getShape().width) {
+                snowman.getShape().x = (float) (dedMoroz.getShape().x - dedMoroz.getShape().width);
             }
             if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) && !dialogHandler.isActive() && !dialogHandler.isComplete()) {
                 snowmanDialog.setText(DialogHandler.snowmanDialogs.get(snowmanDialogIteration));
@@ -312,6 +312,9 @@ public class GameScreen implements Screen {
         treeImage.getImage().dispose();
         snowTreeImage.getImage().dispose();
         snowflakeImage.getImage().dispose();
+        rabbitImage.getImage().dispose();
+        moonImage.getImage().dispose();
+        starsImage.getImage().dispose();
         rainMusic.dispose();
         snowMusic.dispose();
     }
