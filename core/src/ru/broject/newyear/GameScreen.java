@@ -33,6 +33,9 @@ public class GameScreen implements Screen {
     private Tree treeBefore;
     private Tree treeAfter;
     private TreeImage treeImage;
+    private StarsImage starsImage;
+    private MoonImage moonImage;
+    private RabbitImage rabbitImage;
     private SnowTreeImage snowTreeImage;
     private SnowflakeImage snowflakeImage;
     private Array<Raindrop> raindrops;
@@ -69,6 +72,9 @@ public class GameScreen implements Screen {
         treeBefore = new Tree(0);
         treeAfter = new Tree(0);
         snowflakeImage = new SnowflakeImage();
+        starsImage = new StarsImage();
+        moonImage = new MoonImage();
+        rabbitImage = new RabbitImage();
         Label.LabelStyle ls = new Label.LabelStyle(game.font25white, Color.WHITE);
         snowmanDialog = new Label("", ls);
         dedMorozDialog = new Label("", ls);
@@ -118,6 +124,9 @@ public class GameScreen implements Screen {
 
         game.batch.begin();
         game.font25white.draw(game.batch, "snowpoints:" + snowman.getSnowpointsCount(), snowman.getShape().x - Constants.WINDOW_WIDTH / 2 + 20, Constants.WINDOW_HEIGHT - 20);
+        game.batch.draw(starsImage.getImage(), (float) (snowman.getShape().x - Constants.WINDOW_WIDTH / 2.2), (float) (Constants.WINDOW_HEIGHT * 0.55));
+        game.batch.draw(moonImage.getImage(), (float) (snowman.getShape().x + Constants.WINDOW_WIDTH / 4), (float) (Constants.WINDOW_HEIGHT * 0.7));
+        game.batch.draw(rabbitImage.getImage(), (float) (Constants.WINDOW_WIDTH * 5.45), 0);
         if (!dialogHandler.isComplete()) {
             game.batch.draw(treeImage.getImage(), treeBefore.getShape().x, treeBefore.getShape().y);
             game.batch.draw(treeImage.getImage(), treeAfter.getShape().x, treeAfter.getShape().y);
@@ -203,7 +212,7 @@ public class GameScreen implements Screen {
             if (TimeUtils.nanoTime() - lastDropTime > timeBetweenDrops) {
                 spawnRaindrop();
                 if (speed < Constants.MAX_SPEED) {
-                    speed += Constants.DEFAULT_SPEED / 80;
+                    speed += Constants.DEFAULT_SPEED / 75;
                 }
                 if (timeBetweenDrops > Constants.MIN_TIME_BETWEEN_DROPS) {
                     timeBetweenDrops -= Constants.DEFAULT_TIME_BETWEEN_DROPS / 33;
