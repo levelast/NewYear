@@ -9,8 +9,8 @@ import ru.broject.newyear.support.Constants;
  */
 public class Snowflake extends GameObj {
 
-    private static final int WIDTH = 47;
-    private static final int HEIGHT = 45;
+    private static final int WIDTH = 40;
+    private static final int HEIGHT = 40;
     private Rectangle rectangle;
 
     public Snowflake(float snowmanXPosition) {

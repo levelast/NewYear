@@ -1,6 +1,7 @@
 package ru.broject.newyear;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -35,10 +36,10 @@ public class MainMenuScreen implements Screen {
 
         game.batch.begin();
         game.font45white.draw(game.batch, "Saving private\n\n   Snowman", Constants.WINDOW_WIDTH / 6, (float) (Constants.WINDOW_HEIGHT / 1.25));
-        game.font25white.draw(game.batch, "Tap anywhere to begin", Constants.WINDOW_WIDTH / 5, Constants.WINDOW_HEIGHT / 4);
+        game.font25white.draw(game.batch, "Tap SPACE to begin", (float) (Constants.WINDOW_WIDTH / 4.2), Constants.WINDOW_HEIGHT / 4);
         game.batch.end();
 
-        if (Gdx.input.isTouched()) {
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             game.setScreen(new GameScreen(game));
             dispose();
         }

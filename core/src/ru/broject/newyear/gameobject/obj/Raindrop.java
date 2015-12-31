@@ -7,13 +7,13 @@ import ru.broject.newyear.support.Constants;
 /**
  * Created by vyacheslav.svininyh on 28.12.2015.
  */
-public class Drop extends GameObj {
+public class Raindrop extends GameObj {
 
-    private static final int WIDTH = 45;
-    private static final int HEIGHT = 45;
+    private static final int WIDTH = 40;
+    private static final int HEIGHT = 35;
     private Rectangle rectangle;
 
-    public Drop(float snowmanXPosition) {
+    public Raindrop(float snowmanXPosition) {
         rectangle = new Rectangle();
         rectangle.x = MathUtils.random((float) (snowmanXPosition - Constants.WINDOW_WIDTH * 1.5), (float) (snowmanXPosition + Constants.WINDOW_WIDTH * 1.5));
         rectangle.y = Constants.WINDOW_HEIGHT;

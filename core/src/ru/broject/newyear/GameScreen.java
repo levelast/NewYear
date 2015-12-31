@@ -35,7 +35,7 @@ public class GameScreen implements Screen {
     private TreeImage treeImage;
     private SnowTreeImage snowTreeImage;
     private SnowflakeImage snowflakeImage;
-    private Array<Drop> raindrops;
+    private Array<Raindrop> raindrops;
     private Array<Snowflake> snowflakes;
     private OrthographicCamera camera;
     private Label snowmanDialog;
@@ -81,13 +81,13 @@ public class GameScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
 
-        raindrops = new Array<Drop>();
+        raindrops = new Array<Raindrop>();
         spawnRaindrop();
         snowflakes = new Array<Snowflake>();
     }
 
     private void spawnRaindrop() {
-        Drop raindrop = new Drop(snowman.getShape().x);
+        Raindrop raindrop = new Raindrop(snowman.getShape().x);
         raindrops.add(raindrop);
         lastDropTime = TimeUtils.nanoTime();
     }
@@ -153,7 +153,7 @@ public class GameScreen implements Screen {
         }
         game.batch.draw(snowmanImage.getImage(), snowman.getShape().x, snowman.getShape().y);
         if (!dialogHandler.isComplete()) {
-            for (Drop raindrop : raindrops) {
+            for (Raindrop raindrop : raindrops) {
                 game.batch.draw(dropImage.getImage(), raindrop.getShape().x, raindrop.getShape().y);
             }
         } else {
@@ -169,8 +169,6 @@ public class GameScreen implements Screen {
             worldGeneratorAfterCheckpoint += Constants.WINDOW_WIDTH * 1.3;
             treeAfter = new Tree(worldGeneratorAfterCheckpoint);
             treeBefore = new Tree(worldGeneratorBeforeCheckpoint);
-//            treeAfter.getShape().x = worldGeneratorAfterCheckpoint;
-//            treeBefore.getShape().x = worldGeneratorBeforeCheckpoint;
         }
 
         if (snowman.getShape().x < worldGeneratorBeforeCheckpoint) {
@@ -178,8 +176,10 @@ public class GameScreen implements Screen {
             worldGeneratorBeforeCheckpoint -= Constants.WINDOW_WIDTH * 1.3;
             treeAfter = new Tree(worldGeneratorAfterCheckpoint);
             treeBefore = new Tree(worldGeneratorBeforeCheckpoint);
-//            treeAfter.getShape().x = worldGeneratorAfterCheckpoint;
-//            treeBefore.getShape().x = worldGeneratorBeforeCheckpoint;
+        }
+
+        if (snowman.getShape().x < -Constants.WINDOW_WIDTH / 4) {
+            snowman.getShape().x = -Constants.WINDOW_WIDTH / 4;
         }
 
         if (!dialogHandler.isActive()) {
@@ -203,10 +203,10 @@ public class GameScreen implements Screen {
             if (TimeUtils.nanoTime() - lastDropTime > timeBetweenDrops) {
                 spawnRaindrop();
                 if (speed < Constants.MAX_SPEED) {
-                    speed += Constants.DEFAULT_SPEED / 60;
+                    speed += Constants.DEFAULT_SPEED / 80;
                 }
                 if (timeBetweenDrops > Constants.MIN_TIME_BETWEEN_DROPS) {
-                    timeBetweenDrops -= Constants.DEFAULT_TIME_BETWEEN_DROPS / 30;
+                    timeBetweenDrops -= Constants.DEFAULT_TIME_BETWEEN_DROPS / 33;
                 }
             }
         } else {
@@ -235,7 +235,7 @@ public class GameScreen implements Screen {
         }
 
         if (!dialogHandler.isComplete()) {
-            Iterator<Drop> iter = raindrops.iterator();
+            Iterator<Raindrop> iter = raindrops.iterator();
             while (iter.hasNext()) {
                 Rectangle raindrop = iter.next().getShape();
                 raindrop.y -= speed * Gdx.graphics.getDeltaTime();
@@ -245,8 +245,7 @@ public class GameScreen implements Screen {
                         || raindrop.overlaps(dedMoroz.getShape())) {
 
                     iter.remove();
-                }
-                if (raindrop.overlaps(snowman.getShape())) {
+                } else if (raindrop.overlaps(snowman.getShape())) {
                     iter.remove();
                     snowman.setSnowpointsCount(snowman.getSnowpointsCount() - 5);
                 }
@@ -268,10 +267,9 @@ public class GameScreen implements Screen {
                         || snowflake.overlaps(dedMoroz.getShape())) {
 
                     iter.remove();
-                }
-                if (snowflake.overlaps(snowman.getShape())) {
+                } else if (snowflake.overlaps(snowman.getShape())) {
                     iter.remove();
-                    snowman.setSnowpointsCount(snowman.getSnowpointsCount() + 1);
+                    snowman.setSnowpointsCount(snowman.getSnowpointsCount() + 2);
                 }
             }
         }

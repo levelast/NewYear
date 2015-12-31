@@ -1,6 +1,7 @@
 package ru.broject.newyear;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -38,7 +39,7 @@ public class GameOverScreen implements Screen {
         game.font25white.draw(game.batch, "Try again?", Constants.WINDOW_WIDTH / 3, Constants.WINDOW_HEIGHT / 3);
         game.batch.end();
 
-        if (Gdx.input.isTouched()) {
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             game.setScreen(new GameScreen(game));
             dispose();
         }
